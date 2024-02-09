@@ -1,0 +1,18 @@
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 69.3px;
+    width: 100%;
+    background-color: #020203;
+    img{
+        width: 178px;
+        height: 60.93px;
+    }
+    a{
+        text-decoration: none;
+        color: white;
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex');
+
+.App {
+  text-align: center;
+  font-family: 'Roboto Flex', sans-serif;
+  height: 100vh;
+  font-weight:lighter;
+}
+.App-body{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: calc(100% - 69.3px);
+}
