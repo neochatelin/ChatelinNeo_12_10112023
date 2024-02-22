@@ -5,7 +5,7 @@ import d3F from "./d3Function.js"
 const Radar = (props)=>{
     let done = false;
     let tempTab = [], tempTabMin = 99999, tempTabMax = 0;
-    props.data.map((e)=>{
+    props.data.stats.map((e)=>{
         if (tempTabMin > e.value) {
             tempTabMin = e.value
         }if (tempTabMax < e.value) {

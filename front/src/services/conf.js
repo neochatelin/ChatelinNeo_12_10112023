@@ -10,6 +10,6 @@ class confOBJ{
 
 
 let conf = new confOBJ();
-conf.currentEnv = conf.environement.production;
+conf.currentEnv = conf.environement.devlopement;
 
 export default conf;

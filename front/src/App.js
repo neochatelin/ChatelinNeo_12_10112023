@@ -1,16 +1,10 @@
 import './App.css';
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
-import Main from './components/Main';
+import DashbordPage from './pages/Dashbord';
 
 function App() {
   return (
     <div className="App">
-        <Header/>
-        <div className='App-body'>
-          <Sidebar/>
-          <Main/>
-        </div>
+      <DashbordPage/>
     </div>
   );
 }

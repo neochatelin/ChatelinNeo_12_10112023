@@ -9,11 +9,10 @@ import Loading from "./Loading";
 import User from "../services/Service";
 
 const Main = ()=>{
-    console.log(User);
     if (User.status === 500){
         return (
             <main style={{display: 'flex', alignItems: 'center', width: '100%'}}>
-                <h1>ERROR 500</h1>
+                <h1>ERROR 503</h1>
                 <p>quelque chose s’est mal passé sur le serveur réessayer plus tard</p>
                 <img src="./asset/error500.png" alt="error 500" width={300}/>
             </main>
@@ -47,19 +46,19 @@ const Main = ()=>{
                 <div className="body">
                     <div className="un">
                         <div className="deux">
-                            <Poids data={User.UserActivity.sessions}/>
+                            <Poids      data={User.UserActivity.sessions}/>
                         </div>
                         <div className="deux">
-                            <Objectifs data={User.UserSessions.sessions}/>
-                            <Radar data={User.UserPerformance}/>
-                            <KPI data={User.MainData.score ? User.MainData.score*100 : User.MainData.todayScore*100}/>
+                            <Objectifs  data={User.UserSessions.Sessions}/>
+                            <Radar      data={User.UserPerformance}/>
+                            <KPI        data={User.MainData.score}/>
                         </div>
                     </div>
                     <div className="un">
-                        <Card srcImg="./asset/Calories.png" valeur={User.MainData.keyData.calorieCount+"kCal"} description="Calories"/>
-                        <Card srcImg="./asset/Proteines.png" valeur={User.MainData.keyData.proteinCount+"g"} description="Proteines"/>
-                        <Card srcImg="./asset/Glucides.png" valeur={User.MainData.keyData.carbohydrateCount+"g"} description="Glucides"/>
-                        <Card srcImg="./asset/Lipides.png" valeur={User.MainData.keyData.lipidCount+"g"} description="Lipides"/>
+                        <Card srcImg="./asset/Calories.png" valeur={User.MainData.keyData.calorieCount+"kCal"}  description="Calories"/>
+                        <Card srcImg="./asset/Proteines.png"valeur={User.MainData.keyData.proteinCount+"g"}     description="Proteines"/>
+                        <Card srcImg="./asset/Glucides.png" valeur={User.MainData.keyData.carbohydrateCount+"g"}description="Glucides"/>
+                        <Card srcImg="./asset/Lipides.png"  valeur={User.MainData.keyData.lipidCount+"g"}       description="Lipides"/>
                     </div>
                 </div>
             </main>

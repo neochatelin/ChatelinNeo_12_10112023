@@ -36,7 +36,6 @@ class d3Function{
             origin.y = y2;
         }
     }
-
     drawHexagon = (svg, [x, y], size, color)=>{
         let origin = {x: x-size/2, y: y-size/2}
         let deformation = size/100*93.33333333333333;

@@ -1,6 +1,6 @@
 class ModelUserSessions {
     constructor(UserSessions){
-        this.UserSessions = UserSessions.data.sessions;
+        this.Sessions = UserSessions.sessions;
     }
 }
 

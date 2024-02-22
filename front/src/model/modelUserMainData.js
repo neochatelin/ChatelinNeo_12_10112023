@@ -3,10 +3,10 @@ import ModelUserInfos from "./modelUserInfos";
 
 class ModelUserMainData {
     constructor(UserMainData){
-        this.KeyData = new ModelKeyData(UserMainData.data.keyData)
+        this.keyData = new ModelKeyData(UserMainData.keyData)
         this.id = UserMainData.id;
         this.userInfos = new ModelUserInfos(UserMainData.userInfos);
-        this.score = UserMainData.score ? UserMainData.score : UserMainData.todayScore;
+        this.score = UserMainData.score ? UserMainData.score*100 : UserMainData.todayScore*100;
     }
 }
 

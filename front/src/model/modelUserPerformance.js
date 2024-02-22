@@ -1,6 +1,7 @@
 class ModelUserPerformance {
     constructor(UserPerformance){
-        this.UserPerformance = UserPerformance.data;
+        this.stats = UserPerformance.data;
+        this.kind = UserPerformance.kind;
     }
 }
 
