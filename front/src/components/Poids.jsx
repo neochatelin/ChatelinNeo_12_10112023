@@ -1,7 +1,7 @@
 /* eslint-disable no-loop-func */
 import React from "react";
 import * as d3 from "d3"
-import d3F from "./d3Function.js"
+import d3F from "../d3Function.js"
 
 const Poids = (props)=>{
     let done = false;

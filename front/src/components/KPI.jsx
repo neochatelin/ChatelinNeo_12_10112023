@@ -1,6 +1,6 @@
 import React from "react";
 import * as d3 from "d3"
-import d3F from "./d3Function.js"
+import d3F from "../d3Function.js"
 
 const KPI = (props)=>{
     let done = false;
