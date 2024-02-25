@@ -13,22 +13,30 @@ let User;
 if (useMock) {
     let DashbordMockService = await new DashbordMockService_OBJ()
     await DashbordMockService.getInfo().then((data)=>{
-        User = {
-            MainData:       new ModelUserMainData(data.USER_MAIN_DATA.find((elem)=>elem.id === parseInt(urlParams.get("user")) || elem.userId === parseInt(urlParams.get("user")))),
-            UserActivity:   new ModelUserActivity(data.USER_ACTIVITY.find((elem)=>elem.id === parseInt(urlParams.get("user")) || elem.userId === parseInt(urlParams.get("user")))),
-            UserSessions:   new ModelUserSessions(data.USER_AVERAGE_SESSIONS.find((elem)=>elem.id === parseInt(urlParams.get("user")) || elem.userId === parseInt(urlParams.get("user")))),
-            UserPerformance:new ModelUserPerformance(data.USER_PERFORMANCE.find((elem)=>elem.id === parseInt(urlParams.get("user")) || elem.userId === parseInt(urlParams.get("user"))))
+        if(data.USER_MAIN_DATA.find((elem)=>elem.id === parseInt(urlParams.get("user")) || elem.userId === parseInt(urlParams.get("user"))))
+        {
+            User = {
+                MainData:       new ModelUserMainData(data.USER_MAIN_DATA.find((elem)=>elem.id === parseInt(urlParams.get("user")) || elem.userId === parseInt(urlParams.get("user")))),
+                UserActivity:   new ModelUserActivity(data.USER_ACTIVITY.find((elem)=>elem.id === parseInt(urlParams.get("user")) || elem.userId === parseInt(urlParams.get("user")))),
+                UserSessions:   new ModelUserSessions(data.USER_AVERAGE_SESSIONS.find((elem)=>elem.id === parseInt(urlParams.get("user")) || elem.userId === parseInt(urlParams.get("user")))),
+                UserPerformance:new ModelUserPerformance(data.USER_PERFORMANCE.find((elem)=>elem.id === parseInt(urlParams.get("user")) || elem.userId === parseInt(urlParams.get("user"))))
+            }
+        }
+        else{
+            User = {
+                MainData: {status:404}
+            }
         }
     })
 }else{
     let DashbordService = new DashbordService_OBJ();
-    let status = 'OK';
-    await DashbordService.GetUserMainInfo().catch((err)=>{
-        console.log(err);
-        status = "500"
+    let status;
+    await DashbordService.GetUserMainInfo().then((res)=>{
+        res.status === 404 ? status = 404 : status = 200;
+    }).catch((err)=>{
+        status = 503
     });
-    status !== "500" ?
-    User = {
+    status !== 503 ? status !== 404 ? User = {
         MainData: await DashbordService.GetUserMainInfo().then((value)=>{
             return new ModelUserMainData(value);
         }),
@@ -43,7 +51,10 @@ if (useMock) {
         }),
     }
     : User = {
-        status:500
+        MainData: {status:404}
+    }
+    : User = {
+        MainData: {status:503}
     }
 }
 

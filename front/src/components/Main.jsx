@@ -9,7 +9,7 @@ import Loading from "./Loading";
 import User from "../services/Service";
 
 const Main = ()=>{
-    if (User.status === 500){
+    if (User.MainData.status === 503){
         return (
             <main style={{display: 'flex', alignItems: 'center', width: '100%'}}>
                 <h1>ERROR 503</h1>
